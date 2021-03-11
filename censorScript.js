@@ -1,4 +1,4 @@
-const str = 'pizza hello world "Down the Road",\'Hamburger\'';
+const str = 'pizza is hello world "Down the Road",\'Hamburger and fries\'';
 const fs = require('fs');
 var fileToCensor = "";
 
@@ -28,14 +28,8 @@ fs.readFile('censorDoc.txt', (err, data) => {
     for(index in censorList)
     {
         var word = censorList[index]
-        var re = new RegExp(word,"gmi");
+        var re = new RegExp('\\b'+word+'\\b',"gmi");
         fileToCensor = fileToCensor.replace(re, "XXXX");
     }
-    console.log(fileToCensor);
-    
+    console.log(fileToCensor); 
 }) 
-
-
-
-
-
